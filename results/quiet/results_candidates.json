@@ -1,0 +1,11 @@
+{
+  "window": "quiet",
+  "candidate_stats": {
+    "blocks": 1200,
+    "below_base_fee": 67857,
+    "candidates": 170541,
+    "rows_before_replacement_dedupe": 170541,
+    "rows_after_replacement_dedupe": 170541,
+    "horizon_blocks": 25
+  }
+}

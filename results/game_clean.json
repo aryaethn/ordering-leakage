@@ -1,0 +1,38 @@
+{
+  "congested": {
+    "status_quo_extremal": {
+      "advantage": 0.7722834465825388,
+      "n": 52539
+    },
+    "status_quo_random": {
+      "advantage": 0.5740252053172861,
+      "n": 40547
+    },
+    "random_control_extremal": {
+      "advantage": 0.7695008683832969,
+      "n": 52972
+    },
+    "random_control_random": {
+      "advantage": 0.5645682884722931,
+      "n": 41127
+    }
+  },
+  "quiet": {
+    "status_quo_extremal": {
+      "advantage": 0.5288610204432229,
+      "n": 23284
+    },
+    "status_quo_random": {
+      "advantage": 0.3602700490998363,
+      "n": 19552
+    },
+    "random_control_extremal": {
+      "advantage": 0.5266529984623269,
+      "n": 23412
+    },
+    "random_control_random": {
+      "advantage": 0.36188111285663616,
+      "n": 19733
+    }
+  }
+}

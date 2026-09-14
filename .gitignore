@@ -1,0 +1,7 @@
+data/
+results/*/candidates.csv
+results/*/fullness.csv
+results/*/reference_fee.csv
+__pycache__/
+*.pyc
+.DS_Store

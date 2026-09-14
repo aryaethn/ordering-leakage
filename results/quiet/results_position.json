@@ -1,0 +1,27 @@
+{
+  "window": "quiet",
+  "days": [
+    "20251104",
+    "20251105",
+    "20251106"
+  ],
+  "n_blocks_total": 21436,
+  "n_tx_rows": 4835302,
+  "median_base_fee_gwei": 0.6731265365,
+  "median_fullness": 0.4896037729030064,
+  "blocks_with_zero_tip_share": 0.727234558686322,
+  "position": {
+    "status_quo": {
+      "accuracy": 0.8058057939446979,
+      "advantage": 0.6116115878893957,
+      "n_pairs": 74181930,
+      "n_blocks": 3000
+    },
+    "random_control": {
+      "accuracy": 0.4990482048660637,
+      "advantage": 0.001903590267872568,
+      "n_pairs": 74181930,
+      "n_blocks": 3000
+    }
+  }
+}
