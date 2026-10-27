@@ -81,3 +81,30 @@ slots). The reported numbers use each transaction's first candidacy under one sl
 ## License
 
 MIT, see LICENSE.
+
+
+## Correction (26 October 2026)
+
+The swap-adversary results in `results/game_clean.json` are superseded. Blockchair writes transaction
+hashes as bare hex and the mempool dumpster as `0x`-hex; `run_window.load_window` joined them without
+normalising, so no block position was ever found and every pair in which both transactions were
+included was skipped. Those numbers (0.772 / 0.529) are therefore the inclusion bit's advantage
+conditional on the pair not being both included, not an unconditional advantage, and the claim that
+the order is redundant given inclusion does not hold.
+
+- The join is fixed (`norm_hash` in `code/run_window.py`).
+- `code/inclusion_null.py` reruns the swap adversary on the clean candidate set with a fee-blind
+  inclusion null (each block's included count kept, set and order drawn without fees). Results in
+  `results/<window>/results_swap_controls.json`:
+
+| chosen pair (>=2x and <=0.5x the going rate) | 2024 window | 2025 window |
+|---|---|---|
+| inclusion and order (status quo) | 0.840 [0.826, 0.854] | 0.893 [0.885, 0.902] |
+| inclusion only | 0.203 [0.185, 0.222] | 0.063 [0.050, 0.076] |
+| fee-blind inclusion and order (null) | 0.002 | 0.003 |
+| inclusion, conditional on not both included (the old figure) | 0.767 [0.739, 0.794] | 0.535 [0.482, 0.588] |
+
+Run with `--positions` after `code/extract_positions.sh <YYYYMMDD>` for each day (reads the Blockchair
+transaction dump directly from the .tsv.gz).
+
+The position-advantage and Delta_p results are unaffected (neither uses the hash join).

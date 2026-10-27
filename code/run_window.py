@@ -39,6 +39,11 @@ from ordering_leakage import (  # noqa: E402
 )
 
 DERIVED = "data/derived"
+
+
+def norm_hash(s: pd.Series) -> pd.Series:
+    s = s.astype("string").str.strip().str.lower()
+    return s.where(s.str.startswith("0x"), "0x" + s)
 SLOT_MS = 12_000
 
 
@@ -53,6 +58,11 @@ def load_window(days: list[str], with_mempool: bool = True,
                             "position": "int32", "sender": "string",
                             "priority_fee": "float64", "base_fee": "float64"})
          for d in days], ignore_index=True)
+    # Blockchair writes hashes as bare hex, the mempool dumpster as 0x-hex. Any
+    # join on tx_hash must normalise both sides, or nothing matches (this bug
+    # silently disabled the position channel of the swap adversary until
+    # 26 Oct 2026; see 04-decisions.md D-053).
+    blocks["tx_hash"] = norm_hash(blocks["tx_hash"])
     if only_blocks is not None:
         blocks = blocks[blocks["block_number"].isin(only_blocks)].reset_index(drop=True)
     meta = pd.concat(
@@ -85,6 +95,7 @@ def load_mempool_only(days: list[str]) -> pd.DataFrame:
                             "nonce": "float64"})
          for d in days], ignore_index=True)
     mem = mem.dropna(subset=["first_seen_ms", "priority_fee", "fee_cap"])
+    mem["tx_hash"] = norm_hash(mem["tx_hash"])
     return mem.sort_values("first_seen_ms").reset_index(drop=True)
 
 

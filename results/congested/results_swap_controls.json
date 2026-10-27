@@ -1,0 +1,96 @@
+{
+  "window": "congested",
+  "positions_available": true,
+  "n_clean_candidates": 183040,
+  "n_blocks": 1200,
+  "trials": 200000,
+  "bootstrap_reps": 400,
+  "seed": 20261011,
+  "arms": {
+    "status_quo_extremal": {
+      "advantage": 0.8403258737339365,
+      "ci95": [
+        0.8264258727297953,
+        0.8543779957881081
+      ],
+      "accuracy": 0.9201629368669683,
+      "n_trials_scored": 199832,
+      "n_blocks": 1186
+    },
+    "status_quo_random": {
+      "advantage": 0.7759788198156916,
+      "ci95": [
+        0.7616942921839993,
+        0.7904226599088114
+      ],
+      "accuracy": 0.8879894099078458,
+      "n_trials_scored": 176769,
+      "n_blocks": 1200
+    },
+    "order_scrambled_extremal": {
+      "advantage": 0.20276024960342687,
+      "ci95": [
+        0.18530047972086913,
+        0.22156285751897742
+      ],
+      "accuracy": 0.6013801248017134,
+      "n_trials_scored": 199837,
+      "n_blocks": 1186
+    },
+    "order_scrambled_random": {
+      "advantage": 0.13276601045187664,
+      "ci95": [
+        0.12112033905979926,
+        0.14495562124601685
+      ],
+      "accuracy": 0.5663830052259383,
+      "n_trials_scored": 176619,
+      "n_blocks": 1200
+    },
+    "inclusion_conditional_not_both_included_extremal": {
+      "advantage": 0.7667436489607391,
+      "ci95": [
+        0.7391862916165314,
+        0.7934796524378356
+      ],
+      "accuracy": 0.8833718244803695,
+      "n_trials_scored": 52826,
+      "n_blocks": 1016
+    },
+    "inclusion_conditional_not_both_included_random": {
+      "advantage": 0.5681218724579091,
+      "ci95": [
+        0.5440254948370526,
+        0.5929509583974325
+      ],
+      "accuracy": 0.7840609362289546,
+      "n_trials_scored": 40567,
+      "n_blocks": 1049
+    },
+    "inclusion_null_extremal": {
+      "advantage": 0.00228510282962735,
+      "ci95": [
+        0.00020512836660931954,
+        0.011380249104402204
+      ],
+      "accuracy": 0.4988574485851863,
+      "n_trials_scored": 199991,
+      "n_blocks": 1186
+    },
+    "inclusion_null_random": {
+      "advantage": 0.0022482065186691935,
+      "ci95": [
+        0.00012999735324945583,
+        0.008027566108077014
+      ],
+      "accuracy": 0.4988758967406654,
+      "n_trials_scored": 177030,
+      "n_blocks": 1200
+    }
+  },
+  "extremal_pair_outcome_mix": {
+    "differ": 0.19342347518220485,
+    "both_included": 0.7948869923990919,
+    "both_excluded": 0.011689532418703252
+  }
+}
